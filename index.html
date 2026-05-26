@@ -627,7 +627,15 @@ setInterval(updateCountdown, 1000);
 </script> <!-- 🔥 ADD THIS FULL BLOCK HERE -->  <script type="module">  
   
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";  
-import { getFirestore, collection, onSnapshot, query, where, orderBy }   
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  where,
+  orderBy
+} 
 from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";  
   
 const firebaseConfig = {  
@@ -638,7 +646,28 @@ const firebaseConfig = {
   
 const app = initializeApp(firebaseConfig);  
 const db = getFirestore(app);  
-  
+ window.sendWish = async function () {
+
+  const name = document.getElementById("wishName").value;
+  const message = document.getElementById("wishMessage").value;
+
+  if (!name || !message) {
+    alert("Please enter name and wishes");
+    return;
+  }
+
+  await addDoc(collection(db, "wishes"), {
+    eventId: "Ranjith-Nandya",
+    name: name,
+    message: message,
+    time: Date.now()
+  });
+
+  document.getElementById("wishName").value = "";
+  document.getElementById("wishMessage").value = "";
+
+  alert("Wish sent successfully 🤍");
+}; 
 /* COUPLE ID */  
 const eventId = "Ranjith-Nandya";  
   
