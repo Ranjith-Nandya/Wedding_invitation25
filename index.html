@@ -519,47 +519,99 @@ Kodagu, Karnataka</p>
     </a>  
   </div>  <!-- 📅 ADD CALENDAR HERE -->    <!-- 💬 WISHES SECTION --> 
   <!-- 💌 WISH FORM -->
-<div class="card" style="text-align:center;">
+<!-- 💌 SEND WISH BUTTON -->
+<div style="text-align:center; margin:40px 0;">
 
-  <h3>Send Your Wishes 🤍</h3>
-
-  <input type="text"
-         id="wishName"
-         placeholder="Your Name"
-         style="
-           width:90%;
-           padding:12px;
-           margin:10px 0;
-           border-radius:12px;
-           border:none;
-           outline:none;
-         ">
-
-  <textarea id="wishMessage"
-            placeholder="Write your wishes..."
-            rows="4"
-            style="
-              width:90%;
-              padding:12px;
-              border-radius:12px;
-              border:none;
-              outline:none;
-            "></textarea>
-
-  <br><br>
-
-  <button onclick="sendWish()"
-          style="
-            background:#000;
-            color:#fff;
-            border:none;
-            padding:12px 25px;
-            border-radius:30px;
-            font-size:16px;
-            cursor:pointer;
-          ">
-    Send Wishes 🤍
+  <button onclick="openWishPopup()"
+    style="
+      background:#000;
+      color:#fff;
+      border:none;
+      padding:14px 28px;
+      border-radius:35px;
+      font-size:18px;
+      cursor:pointer;
+    ">
+    Send Your Wishes 🤍
   </button>
+
+</div>
+
+<!-- 💌 POPUP -->
+<div id="wishPopup"
+  style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+  ">
+
+  <div style="
+      background:#fff;
+      width:85%;
+      max-width:400px;
+      border-radius:25px;
+      padding:25px;
+      text-align:center;
+    ">
+
+    <h2>Send your wishes 🤍</h2>
+
+    <input type="text"
+      id="wishName"
+      placeholder="Your Name"
+      style="
+        width:90%;
+        padding:12px;
+        margin-top:15px;
+        border-radius:12px;
+        border:1px solid #ddd;
+      ">
+
+    <textarea
+      id="wishMessage"
+      placeholder="Type your wishes..."
+      rows="5"
+      style="
+        width:90%;
+        padding:12px;
+        margin-top:15px;
+        border-radius:12px;
+        border:1px solid #ddd;
+      "></textarea>
+
+    <div style="margin-top:20px; display:flex; gap:10px; justify-content:center;">
+
+      <button onclick="closeWishPopup()"
+        style="
+          padding:10px 20px;
+          border:none;
+          border-radius:20px;
+          background:#ddd;
+        ">
+        Close
+      </button>
+
+      <button onclick="sendWish()"
+        style="
+          padding:10px 20px;
+          border:none;
+          border-radius:20px;
+          background:#000;
+          color:#fff;
+        ">
+        Send 🤍
+      </button>
+
+    </div>
+
+  </div>
 
 </div>
   
@@ -588,7 +640,18 @@ function openInvite() {
     document.getElementById("content").style.display = "block";  
   }, 900);  
 }  
-</script> 
+</script>
+
+<script>
+function openWishPopup() {
+  document.getElementById("wishPopup").style.display = "flex";
+}
+
+function closeWishPopup() {
+  document.getElementById("wishPopup").style.display = "none";
+}
+</script>
+
 <script>
 const weddingDate = new Date("June 25, 2026 12:00:00").getTime();
 
