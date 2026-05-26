@@ -710,7 +710,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);  
 const db = getFirestore(app);  
  window.sendWish = async function () {
-
+if (localStorage.getItem("wishSent")) {
+  alert("You already sent your wishes 🤍");
+  return;
+}
   const name = document.getElementById("wishName").value;
   const message = document.getElementById("wishMessage").value;
 
@@ -729,6 +732,7 @@ const db = getFirestore(app);
   document.getElementById("wishName").value = "";
   document.getElementById("wishMessage").value = "";
 closeWishPopup();
+   localStorage.setItem("wishSent", "true");
   alert("Wish sent successfully 🤍");
 }; 
 /* COUPLE ID */  
