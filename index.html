@@ -486,7 +486,7 @@ body {
   As I begin a new and important chapter of<br>
   my life, it would mean a lot to have you by<br>
   my side on this special occasion. 
-</p>  </div>  
+</p>    
   <div id="countdown" class="countdown"></div>
   </div>    <div class="card">  
   <h3>Wedding</h3>    <p>  
@@ -543,25 +543,41 @@ function openInvite() {
   }, 900);  
 }  
 </script> 
-  <script>
+<script>
 const weddingDate = new Date("June 25, 2026 12:00:00").getTime();
 
-setInterval(() => {
+function updateCountdown() {
+
+  const countdown = document.getElementById("countdown");
+
+  if (!countdown) return;
+
   const now = new Date().getTime();
+
   const diff = weddingDate - now;
 
   if (diff < 0) {
-    document.getElementById("countdown").innerHTML = "🎉 It's Wedding Time!";
+    countdown.innerHTML = "🎉 It's Wedding Time!";
     return;
   }
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-  document.getElementById("countdown").innerHTML =
+  const hours = Math.floor(
+    (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+
+  const minutes = Math.floor(
+    (diff % (1000 * 60 * 60)) / (1000 * 60)
+  );
+
+  countdown.innerHTML =
     ⏳ ${days} Days ${hours} Hours ${minutes} Minutes;
-}, 1000);
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
 </script> <!-- 🔥 ADD THIS FULL BLOCK HERE -->  <script type="module">  
   
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";  
