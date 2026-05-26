@@ -517,7 +517,53 @@ Kodagu, Karnataka</p>
      class="map-btn">  
      📍 View Location  
     </a>  
-  </div>  <!-- 📅 ADD CALENDAR HERE -->    <!-- 💬 WISHES SECTION -->  <div class="wish-container" id="wishContainer"></div>  
+  </div>  <!-- 📅 ADD CALENDAR HERE -->    <!-- 💬 WISHES SECTION --> 
+  <!-- 💌 WISH FORM -->
+<div class="card" style="text-align:center;">
+
+  <h3>Send Your Wishes 🤍</h3>
+
+  <input type="text"
+         id="wishName"
+         placeholder="Your Name"
+         style="
+           width:90%;
+           padding:12px;
+           margin:10px 0;
+           border-radius:12px;
+           border:none;
+           outline:none;
+         ">
+
+  <textarea id="wishMessage"
+            placeholder="Write your wishes..."
+            rows="4"
+            style="
+              width:90%;
+              padding:12px;
+              border-radius:12px;
+              border:none;
+              outline:none;
+            "></textarea>
+
+  <br><br>
+
+  <button onclick="sendWish()"
+          style="
+            background:#000;
+            color:#fff;
+            border:none;
+            padding:12px 25px;
+            border-radius:30px;
+            font-size:16px;
+            cursor:pointer;
+          ">
+    Send Wishes 🤍
+  </button>
+
+</div>
+  
+  <div class="wish-container" id="wishContainer"></div>  
 <div style="text-align:center; margin: 30px 0;">  
 <a href="wedding.ics" class="calendar-btn">  
 📅 Add to Calendar  
