@@ -632,12 +632,23 @@ Kodagu, Karnataka</p>
 <div style="text-align:center; margin: 30px 0;">  
 <a href="wedding.ics" class="calendar-btn">  
 📅 Add to Calendar  
-  </a>  
-</div> 
-<div style="text-align:center; margin: 30px 0;">
-<a href="wedding.ics" class="calendar-btn">
-📅 Add to Calendar
-</a>
+  </a> 
+  <div style="text-align:center; margin-top:20px;">
+
+<button onclick="openContactPopup()"
+style="
+background:#000;
+color:white;
+border:none;
+padding:14px 28px;
+border-radius:35px;
+font-size:18px;
+cursor:pointer;
+">
+📞 Guest Contact
+</button>
+
+</div>
 </div>
 
 <div style="text-align:center; margin:20px 0 40px 0;">
@@ -864,5 +875,68 @@ function closeContactPopup() {
 
 </div>
   <script>
+    <!-- GUEST CONTACT POPUP -->
+
+<div id="contactPopup"
+style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+z-index:9999;
+justify-content:center;
+align-items:center;
+">
+
+  <div style="
+  background:#fff;
+  width:85%;
+  max-width:350px;
+  border-radius:25px;
+  padding:25px;
+  text-align:center;
+  ">
+
+    <h2>Guest Contact</h2>
+
+    <p><strong>Ajith Kumar</strong></p>
+
+    <a href="tel:+919482667887" class="map-btn">
+      📞 +91 94826 67887
+    </a>
+
+    <br><br>
+
+    <p><strong>Akash</strong></p>
+
+    <a href="tel:+918618242496" class="map-btn">
+      📞 +91 86182 42496
+    </a>
+
+    <br><br>
+
+    <button onclick="closeContactPopup()">
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+function openContactPopup() {
+  document.getElementById("contactPopup").style.display = "flex";
+}
+
+function closeContactPopup() {
+  document.getElementById("contactPopup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
 </body>  
 </html>
