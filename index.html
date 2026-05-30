@@ -622,7 +622,7 @@ Kodagu, Karnataka</p>
 
     <div style="margin-top:20px; display:flex; gap:10px; justify-content:center;">
 
-      <button onclick="closeWishPopup()"
+      <="closeWishPopup()"
         style="
           padding:10px 20px;
           border:none;
@@ -632,16 +632,19 @@ Kodagu, Karnataka</p>
         Close
       </button>
 
-      <button onclick="sendWish()"
-        style="
-          padding:10px 20px;
-          border:none;
-          border-radius:20px;
-          background:#000;
-          color:#fff;
-        ">
-        Send 🤍
-      </button>
+      <button
+  id="sendBtn"
+  onclick="sendWish()"
+  style="
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:#000;
+    color:#fff;
+    cursor:pointer;
+  ">
+  Send 🤍
+</button>
 
     </div>
 
@@ -817,6 +820,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);  
 const db = getFirestore(app);  
  window.sendWish = async function () {
+  const btn = document.getElementById("sendBtn");
+
+btn.disabled = true;
+btn.innerHTML = "⏳ Sending...";
+btn.style.opacity = "0.7"; 
 if (localStorage.getItem("wishSent")) {
   alert("You already sent your wishes 🤍");
   return;
@@ -840,6 +848,9 @@ if (localStorage.getItem("wishSent")) {
   document.getElementById("wishMessage").value = "";
 closeWishPopup();
    localStorage.setItem("wishSent", "true");
+   btn.disabled = false;
+btn.innerHTML = "✓ Sent";
+btn.style.opacity = "1";
   alert("Wish sent successfully 🤍");
 }; 
 /* COUPLE ID */  
