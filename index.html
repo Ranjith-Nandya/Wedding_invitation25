@@ -621,12 +621,13 @@ Kodagu, Karnataka</p>
 <a href="wedding.ics" class="calendar-btn">  
 📅 Add to Calendar  
   </a> 
-  <div style="text-align:center; margin-top:20px;">
+</div>
+  <div style="text-align:center; margin:20px 0;">
 
-<button onclick="openContactPopup()"
+<button onclick="toggleContacts()"
 style="
 background:#000;
-color:white;
+color:#fff;
 border:none;
 padding:14px 28px;
 border-radius:35px;
@@ -636,25 +637,30 @@ cursor:pointer;
 📞 Guest Contact
 </button>
 
+<div id="guestContacts"
+style="
+display:none;
+margin-top:15px;
+">
+
+<p><strong>Ajith Kumar</strong></p>
+
+<a href="tel:+919482667887" class="map-btn">
+📞 +91 94826 67887
+</a>
+
+<br><br>
+
+<p><strong>Akash</strong></p>
+
+<a href="tel:+918618242496" class="map-btn">
+📞 +91 86182 42496
+</a>
+
 </div>
+
 </div>
-
-<div style="text-align:center; margin:20px 0 40px 0;">
-
-  <button onclick="openContactPopup()"
-    style="
-      background:#000;
-      color:#fff;
-      border:none;
-      padding:14px 28px;
-      border-radius:35px;
-      font-size:18px;
-      cursor:pointer;
-    ">
-    📞 Guest Contact
-  </button>
-
-</div> </div>  
+ </div>  
 </div>  <script>  
 function openInvite() {  
   let env = document.getElementById("env");  
@@ -796,135 +802,20 @@ onSnapshot(q, (snapshot) => {
     `;  
   });  
 });  
- <script>
-function openContactPopup() {
-  document.getElementById("contactPopup").style.display = "flex";
-}
 
-function closeContactPopup() {
-  document.getElementById("contactPopup").style.display = "none";
-}
-</script> 
-<div id="contactPopup"
-  style="
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.5);
-    z-index:9999;
-    justify-content:center;
-    align-items:center;
-  ">
-
-  <div style="
-      background:#fff;
-      width:85%;
-      max-width:350px;
-      border-radius:25px;
-      padding:25px;
-      text-align:center;
-    ">
-
-    <h2>Guest Contact</h2>
-
-    <p>For any queries regarding venue, accommodation or travel, please contact:</p>
-
-    <p><strong>Ajith Kumar</strong></p>
-
-    <a href="tel:+919482667887" class="map-btn">
-      📞 Call Ajith
-    </a>
-
-    <br><br>
-
-    <p><strong>Akash</strong></p>
-
-    <a href="tel:+918618242496" class="map-btn">
-      📞 Call Akash
-    </a>
-
-    <br><br>
-
-    <button onclick="closeContactPopup()"
-      style="
-        padding:10px 20px;
-        border:none;
-        border-radius:20px;
-        background:#ddd;
-        cursor:pointer;
-      ">
-      Close
-    </button>
-
-  </div>
-
-</div>
+   </script>
   <script>
-    <!-- GUEST CONTACT POPUP -->
+function toggleContacts() {
 
-<div id="contactPopup"
-style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-z-index:9999;
-justify-content:center;
-align-items:center;
-">
+  const box = document.getElementById("guestContacts");
 
-  <div style="
-  background:#fff;
-  width:85%;
-  max-width:350px;
-  border-radius:25px;
-  padding:25px;
-  text-align:center;
-  ">
+  if(box.style.display === "none" || box.style.display === "") {
+      box.style.display = "block";
+  } else {
+      box.style.display = "none";
+  }
 
-    <h2>Guest Contact</h2>
-
-    <p><strong>Ajith Kumar</strong></p>
-
-    <a href="tel:+919482667887" class="map-btn">
-      📞 +91 94826 67887
-    </a>
-
-    <br><br>
-
-    <p><strong>Akash</strong></p>
-
-    <a href="tel:+918618242496" class="map-btn">
-      📞 +91 86182 42496
-    </a>
-
-    <br><br>
-
-    <button onclick="closeContactPopup()">
-      Close
-    </button>
-
-  </div>
-
-</div>
-
-<script>
-function openContactPopup() {
-  document.getElementById("contactPopup").style.display = "flex";
-}
-
-function closeContactPopup() {
-  document.getElementById("contactPopup").style.display = "none";
 }
 </script>
-
-</body>
-</html>
 </body>  
 </html>
