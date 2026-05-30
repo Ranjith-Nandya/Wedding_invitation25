@@ -433,7 +433,27 @@ body {
   
 .click-area:active {  
   transform: translate(-50%, -50%) scale(0.95);  
-}  
+} 
+ .guest-contact-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+
+  background:#2f6f67;
+  color:#fff;
+
+  border:none;
+  border-radius:30px;
+
+  padding:12px 18px;
+
+  font-size:14px;
+  cursor:pointer;
+
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+  z-index:999;
+}   
 </style>  </head>  <body>  
 <!-- 🎵 ADD THIS AUDIO -->  
 <audio id="music" loop playsinline>  
@@ -516,36 +536,6 @@ Kodagu, Karnataka</p>
      📍 View Location  
     </a>  
   </div> 
-  <!-- 📞 Contact Persons -->
-<div style="
-  text-align:center;
-  margin:30px 20px;
-  padding:18px;
-  background:rgba(255,255,255,0.7);
-  border-radius:20px;
-  backdrop-filter:blur(6px);
-">
-
-  <h3 style="margin:0 0 10px 0;">Need Help?</h3>
-
-  <p style="margin:0; color:#555;">
-    For any queries regarding venue, accommodation, or travel,
-    please contact:
-  </p>
-
-  <div style="margin-top:15px;">
-
-    <p style="margin:10px 0 5px; font-weight:600; color:#2f6f67;">
-      Ajith Kumar
-    </p>
-
-    <a href="tel:+919482667887"
-       style="text-decoration:none; color:#2f6f67; font-size:18px; font-weight:600;">
-       📞 +91 94826 67887
-    </a>
-
-  </div>
-
   <div style="margin-top:18px;">
 
     <p style="margin:10px 0 5px; font-weight:600; color:#2f6f67;">
@@ -806,5 +796,77 @@ onSnapshot(q, (snapshot) => {
   });  
 });  
   
-</script>  </body>  
+</script> 
+<script>
+function openContactPopup() {
+  document.getElementById("contactPopup").style.display = "flex";
+}
+
+function closeContactPopup() {
+  document.getElementById("contactPopup").style.display = "none";
+}
+</script>
+
+<div id="contactPopup"
+  style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+  ">
+
+  <div style="
+      background:#fff;
+      width:85%;
+      max-width:350px;
+      border-radius:25px;
+      padding:25px;
+      text-align:center;
+    ">
+
+    <h2>Guest Contact</h2>
+
+    <p>For any queries regarding venue, accommodation or travel, please contact:</p>
+
+    <p><strong>Ajith Kumar</strong></p>
+
+    <a href="tel:+919482667887" class="map-btn">
+      📞 Call Ajith
+    </a>
+
+    <br><br>
+
+    <p><strong>Akash</strong></p>
+
+    <a href="tel:+918618242496" class="map-btn">
+      📞 Call Akash
+    </a>
+
+    <br><br>
+
+    <button onclick="closeContactPopup()"
+      style="
+        padding:10px 20px;
+        border:none;
+        border-radius:20px;
+        background:#ddd;
+        cursor:pointer;
+      ">
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+<button class="guest-contact-btn" onclick="openContactPopup()">
+  📞 Guest Contact
+</button>
+</body>  
 </html>
