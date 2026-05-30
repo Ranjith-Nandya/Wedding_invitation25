@@ -433,26 +433,6 @@ body {
   
 .click-area:active {  
   transform: translate(-50%, -50%) scale(0.95);  
-} 
- .guest-contact-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-
-  background:#2f6f67;
-  color:#fff;
-
-  border:none;
-  border-radius:30px;
-
-  padding:12px 18px;
-
-  font-size:14px;
-  cursor:pointer;
-
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
-
-  z-index:999;
 }   
 </style>  </head>  <body>  
 <!-- 🎵 ADD THIS AUDIO -->  
@@ -653,7 +633,29 @@ Kodagu, Karnataka</p>
 <a href="wedding.ics" class="calendar-btn">  
 📅 Add to Calendar  
   </a>  
-</div>  </div>  
+</div> 
+<div style="text-align:center; margin: 30px 0;">
+<a href="wedding.ics" class="calendar-btn">
+📅 Add to Calendar
+</a>
+</div>
+
+<div style="text-align:center; margin:20px 0 40px 0;">
+
+  <button onclick="openContactPopup()"
+    style="
+      background:#000;
+      color:#fff;
+      border:none;
+      padding:14px 28px;
+      border-radius:35px;
+      font-size:18px;
+      cursor:pointer;
+    ">
+    📞 Guest Contact
+  </button>
+
+</div> </div>  
 </div>  <script>  
 function openInvite() {  
   let env = document.getElementById("env");  
@@ -795,8 +797,7 @@ onSnapshot(q, (snapshot) => {
     `;  
   });  
 });  
-  
-</script> 
+ <script>
 function openContactPopup() {
   document.getElementById("contactPopup").style.display = "flex";
 }
@@ -804,8 +805,7 @@ function openContactPopup() {
 function closeContactPopup() {
   document.getElementById("contactPopup").style.display = "none";
 }
-</script>
-
+</script> 
 <div id="contactPopup"
   style="
     display:none;
@@ -863,10 +863,6 @@ function closeContactPopup() {
   </div>
 
 </div>
-
-<button class="guest-contact-btn" onclick="openContactPopup()">
-  📞 Guest Contact
-</button>
   <script>
 </body>  
 </html>
