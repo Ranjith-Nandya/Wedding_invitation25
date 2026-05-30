@@ -650,30 +650,40 @@ Kodagu, Karnataka</p>
 </div>
   
   <div class="wish-container" id="wishContainer"></div>  
-<div style="text-align:center; margin: 5px 0;">  
-<a href="wedding.ics" class="calendar-btn">  
-📅 Add to Calendar  
-  </a> 
-</div>
-  <div style="text-align:center; margin:20px 0;">
+<div style="
+display:flex;
+justify-content:center;
+gap:12px;
+margin:10px 0;
+flex-wrap:wrap;
+">
+
+<a href="wedding.ics" class="calendar-btn">
+📅 Add to Calendar
+</a>
 
 <button onclick="toggleContacts()"
 style="
 background:#000;
 color:#fff;
 border:none;
-padding:14px 28px;
-border-radius:35px;
-font-size:18px;
+padding:14px 24px;
+border-radius:30px;
+font-size:14px;
+font-weight:500;
 cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 ">
 📞 Guest Contact
 </button>
 
+</div>
+
 <div id="guestContacts"
 style="
 display:none;
-margin-top:15px;
+margin-top:10px;
+text-align:center;
 ">
 
 <p><strong>Ajith Kumar</strong></p>
@@ -689,8 +699,6 @@ margin-top:15px;
 <a href="tel:+918618242496" class="map-btn">
 📞 +91 86182 42496
 </a>
-
-</div>
 
 </div>
  </div>  
