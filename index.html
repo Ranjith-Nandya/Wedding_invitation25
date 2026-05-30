@@ -877,9 +877,20 @@ function toggleContacts() {
   const box = document.getElementById("guestContacts");
 
   if(box.style.display === "none" || box.style.display === "") {
+
       box.style.display = "block";
+
+      setTimeout(() => {
+        box.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }, 100);
+
   } else {
+
       box.style.display = "none";
+
   }
 
 }
