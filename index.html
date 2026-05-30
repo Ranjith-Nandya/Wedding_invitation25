@@ -834,7 +834,9 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);  
  window.sendWish = async function () {
   const btn = document.getElementById("sendBtn");
-
+btn.style.transform = "scale(0.95)";
+btn.innerHTML = "⏳ Sending...";
+btn.disabled = true;
 btn.disabled = true;
 btn.innerHTML = "⏳ Sending...";
 btn.style.opacity = "0.7"; 
@@ -861,9 +863,12 @@ if (localStorage.getItem("wishSent")) {
   document.getElementById("wishMessage").value = "";
 closeWishPopup();
    localStorage.setItem("wishSent", "true");
-   btn.disabled = false;
-btn.innerHTML = "✓ Sent";
-btn.style.opacity = "1";
+  btn.innerHTML = "✓ Sent";
+btn.style.background = "#28a745";
+
+setTimeout(() => {
+  closeWishPopup();
+}, 800);
   alert("Wish sent successfully 🤍");
 }; 
 /* COUPLE ID */  
